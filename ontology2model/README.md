@@ -6,22 +6,34 @@ los **35 archivos originales están dentro del ZIP**, con su estructura de
 carpetas. La interfaz e instrucciones corresponden a 3.1.1; el motor y el
 contrato semántico siguen en 3.1.
 
-## Descargar y preparar
+## Descargar
 
 - [OSDi_Project_20261113_v3_1_1.zip](OSDi_Project_20261113_v3_1_1.zip): paquete
   original con código, plantilla XLSM, esquemas, documentación y pruebas.
 - [INSTRUCCIONES_PROYECTO.txt](INSTRUCCIONES_PROYECTO.txt): instrucciones activas
   3.1.1, idénticas byte por byte a las incluidas en el ZIP.
 
-Descarga el ZIP y extráelo en una carpeta nueva, **conservando todas sus
-subcarpetas**. Empieza por `00_EMPEZAR.txt`. Se requiere Python 3.10 o superior
-y su biblioteca estándar, además de un entorno de IA capaz de leer archivos
-y ejecutar Python.
+## Configurar el proyecto en ChatGPT
 
-Configura el proyecto de IA con `INSTRUCCIONES_PROYECTO.txt` y memoria exclusiva
-del proyecto. Estas son las instrucciones canónicas de la versión activa.
-Mantén únicamente el ZIP 3.1.1 como fuente activa del paquete y conserva las
-versiones anteriores fuera de ese contexto.
+El uso habitual se realiza dentro de un proyecto de ChatGPT preparado así:
+
+1. **Crea un proyecto nuevo con memoria solo del proyecto.** Selecciona esta
+   modalidad al crearlo para mantener el contexto de este trabajo dentro del
+   propio proyecto.
+2. **Configura las instrucciones del proyecto.** Abre
+   `INSTRUCCIONES_PROYECTO.txt`, copia su contenido completo y pégalo en el
+   apartado **Instrucciones del proyecto** de la configuración.
+3. **Adjunta el ZIP en Fuentes.** Añade
+   `OSDi_Project_20261113_v3_1_1.zip` completo, sin descomprimir, a las
+   **Fuentes del proyecto**. Mantén este ZIP como única versión activa del
+   paquete y conserva las versiones anteriores fuera de ese contexto.
+4. **Abre una conversación dentro del proyecto y adjunta el TTL del caso.**
+   Con el proyecto ya configurado, basta adjuntar ese archivo para iniciar
+   el flujo documentado.
+
+El entorno de IA debe poder leer archivos y ejecutar Python. El contenido de
+`INSTRUCCIONES_PROYECTO.txt` constituye las instrucciones canónicas de la
+versión activa.
 
 ## Cómo funciona
 
@@ -31,10 +43,16 @@ parámetros, intervenciones, ramas, probabilidades y fórmulas respaldadas por
 el caso. Python prepara hechos, comprueba el plan y escribe el XLSM.
 
 **La CLI no llama a un LLM ni deduce el árbol automáticamente.** El plan lo
-redacta la IA; la usuaria no tiene que proporcionarlo. La modalidad documentada
+redacta la IA; el usuario no tiene que proporcionarlo. La modalidad documentada
 de proyecto ChatGPT no requiere una clave API adicional.
 
-Los comandos técnicos se ejecutan desde la carpeta extraída:
+### Comandos técnicos
+
+Para ejecutar directamente los comandos de Python, descarga el ZIP y extráelo
+en una carpeta nueva, **conservando todas sus subcarpetas**. Empieza por
+`00_EMPEZAR.txt`. Se requiere Python 3.10 o superior y su biblioteca estándar.
+
+Los comandos se ejecutan desde la carpeta extraída:
 
 ```bash
 python preparar_contexto.py --ttl CASO.ttl --out CONTEXTO_NUEVO
